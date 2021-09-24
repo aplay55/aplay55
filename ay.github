@@ -1,0 +1,77 @@
+def ooo():
+    from tkinter import *
+    from tkinter import filedialog, Tk
+    from pytube import YouTube
+    from tkinter import ttk
+    from tkinter import messagebox
+    root=Tk()
+    root.title('aplay55 app')
+    def anal():
+        try:
+            v = YouTube(link.get())
+            title1.set(f'{v.title}')
+            length1.set(f'{v.length}')
+            description1.set(f'{v.description}')
+            vi.set(f'{v.views}')
+        except:
+            rr = messagebox.showerror(title='Error',message='Error\nTry another URL')
+
+    def download():
+        try:
+            v = YouTube(link.get())
+            if 1 == 1:
+                path = filedialog.askdirectory(initialdir="\\")
+                v.streams.get_lowest_resolution().download(output_path=path)
+        except:
+            rr = messagebox.showerror(title='Error', message='Error\nTry another URL')
+
+    link = StringVar()
+
+    e1 = Entry(root,textvariable=link,width=30,font=('times',15,'italic bold'))
+    e1.grid(row=1,column=1)
+
+    title1=StringVar()
+
+    length1=StringVar()
+
+    description1=StringVar()
+
+    vi=StringVar()
+
+    l1 = Label(root,text='enter a link',width=10,font=('times',15,'italic bold'))
+    l1.grid(row=1,column=0)
+
+    tit = Entry(root,textvariable=title1,width=30,font=('times',15,'italic bold'))
+    tit.grid(row=2,column=1)
+
+    l2=Label(root,text='video title->>',width=10,font=('times',15,'italic bold'))
+    l2.grid(row=2,column=0)
+
+    leng = Entry(root,textvariable=length1,width=30,font=('times',15,'italic bold'))
+    leng.grid(row=3,column=1)
+
+    l3 = Label(root,text='video lenght->>',width=13,font=('times',15,'italic bold'))
+    l3.grid(row=3,column=0)
+
+    descriptio = Entry(root, textvariable=description1,width=30,font=('times',15,'italic bold'))
+    descriptio.grid(row=4,column=1)
+
+    l4 = Label(root,text='video description->>',width=13,font=('times',15,'italic bold'))
+    l4.grid(row=4,column=0)
+
+
+    des = Entry(root,textvariable=vi,width=30,font=('times',15,'italic bold'))
+    des.grid(row=5,column=1)
+
+    l6 = Label(root,text='views->>',width=10,font=('times',15,'italic bold')).grid(row=5,column=0)
+
+    btn=Button(root,text='show analyzes',width=10,font=('times',15,'italic bold'),bg='yellow',command=anal)
+    btn.grid(row=1,column=2)
+
+    btn2=Button(root,text='download',width=13,font=('times',15,'italic bold'),bg='blue',command=download)
+    btn2.grid(row=7,column=1)
+
+
+
+    root.mainloop()
+print(ooo)
